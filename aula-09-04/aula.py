@@ -34,6 +34,41 @@ elif num_color == 4:
     img_gray[(64 < img_gray) & (img_gray < 128)]  = 64
     img_gray[(128 < img_gray) & (img_gray < 192)]  = 128
     img_gray[img_gray > 192]  = 192
+elif num_color == 8:
+    img_gray[img_gray < 32] = 0
+    for i in range(1,7):
+        a = 32 * i
+        b = a * 2
+        img_gray[(a < img_gray) & (img_gray < b)]  = a
+    img_gray[img_gray > 224] = 255
+elif num_color == 16:
+    img_gray[img_gray < 16] = 0
+    for i in range(1,15):
+        a = 16 * i
+        b = a * 2
+        img_gray[(a < img_gray) & (img_gray < b)] = a
+    img_gray[img_gray > 240]  = 255
+elif num_color == 32:
+    img_gray[img_gray < 8] = 0
+    for i in range(1,31):
+        a = 8 * i
+        b = a * 2
+        img_gray[(a < img_gray) & (img_gray < b)]  = a
+    img_gray[img_gray > 248] = 255
+elif num_color == 64:
+    img_gray[img_gray < 4] = 0
+    for i in range(1,63):
+        a = 4 * i
+        b = a * 2
+        img_gray[(a < img_gray) & (img_gray < b)]  = a
+    img_gray[img_gray > 252] = 255
+elif num_color == 128:
+    img_gray[img_gray < 2] = 0
+    for i in range(1,127):
+        a = 2 * i
+        b = a * 2
+        img_gray[(a < img_gray) & (img_gray < b)]  = a
+    img_gray[img_gray > 254] = 255   
 else:
     img_gray[img_gray < 32]  = 0
     img_gray[(32 < img_gray) & (img_gray < 64)]  = 32
